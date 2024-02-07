@@ -117,7 +117,7 @@ describe("Given I am connected as an employee", () => {
       expect(screen.getByText("Mes notes de frais")).toBeTruthy()
     })
   })
-  // Intégration
+  // Intégration GET
   describe("When an error occurs on API", () => {
     beforeEach(() => {
       jest.spyOn(mockStore, "bills")
@@ -135,7 +135,7 @@ describe("Given I am connected as an employee", () => {
       document.body.appendChild(root)
       router()
     })
-    // Vérifie si l'erreur 404 s'affiche bien
+    // Vérifier si l'erreur 404 s'affiche bien
     test("Then fetches bills from an API and fails with 404 message error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
         return {
@@ -148,7 +148,7 @@ describe("Given I am connected as an employee", () => {
       const message = await screen.getByText(/Erreur 404/)
       expect(message).toBeTruthy()
     })
-  // Vérifie si l'erreur 500 s'affiche bien
+  // Vérifier si l'erreur 500 s'affiche bien
     test("Then fetches messages from an API and fails with 500 message error", async () => {
       mockStore.bills.mockImplementationOnce(() => {
         return {
