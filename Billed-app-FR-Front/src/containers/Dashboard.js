@@ -137,7 +137,7 @@ export default class {
       $(`#arrow-icon${this.index}`).css({ transform: 'rotate(0deg)'})
       $(`#status-bills-container${this.index}`)
         .html(cards(filteredBills(bills, getStatus(this.index))))
-      //this.counter ++
+      this.counter ++
     } else {
       $(`#arrow-icon${this.index}`).css({ transform: 'rotate(90deg)'})
       $(`#status-bills-container${this.index}`)
@@ -146,7 +146,11 @@ export default class {
     }
 
     bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+      //$(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+      // Déplier plusieurs listes et consulter les tickets de chacune des listes
+      $(`#status-bills-container${index} #open-bill${bill.id}`).click((e) =>
+      this.handleEditTicket(e, bill, bills)
+    )
     })
 
     return bills
