@@ -110,6 +110,8 @@ tr td:nth-of-type(5) {
   color: #0E5AE5;
 }
 
-.bill-proof-container {
-  overflow: scroll;
+.bill-proof-container img, .modal-body img{
+  width:100% ;
+  
 }
+
